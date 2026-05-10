@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VVARSHAA 💔 | The Squad That Manipal Built</title>
+  <meta name="description" content="VVARSHAA - 8 idiots, 1 group chat, 55000+ messages, infinite memories. MIT Manipal BTech squad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HERO -->
+  <section id="hero" class="section hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-badge">MIT MANIPAL • EST. 2023 • BATCH OF '27</div>
+      <h1 class="hero-title">
+        <span class="letter" data-member="Vedant" style="--hue:280">V</span>
+        <span class="letter" data-member="Vashist" style="--hue:320">V</span>
+        <span class="letter" data-member="Anand" style="--hue:200">A</span>
+        <span class="letter" data-member="Rohit" style="--hue:120">R</span>
+        <span class="letter" data-member="Shadab" style="--hue:30">S</span>
+        <span class="letter" data-member="Hiten" style="--hue:0">H</span>
+        <span class="letter" data-member="Aakarsh" style="--hue:60">A</span>
+        <span class="letter" data-member="Aryan" style="--hue:160">A</span>
+      </h1>
+      <p class="hero-sub">8 idiots. 1 group chat. 55,000+ messages. Infinite memories.</p>
+      <div class="hero-names">
+        <span>420</span><span>gwak</span><span>bingbong</span><span>sourgrapes</span>
+        <span>mrkms</span><span>HRS</span><span>bevu</span><span>ninjastar</span>
+      </div>
+      <div class="scroll-indicator">
+        <div class="mouse"></div>
+        <span>scroll down to relive the chaos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS OVERVIEW -->
+  <section id="stats" class="section stats-section">
+    <h2 class="section-title">The Numbers Don't Lie <span class="emoji">📊</span></h2>
+    <p class="section-sub">But we do. Constantly. To each other.</p>
+    <div class="stats-grid">
+      <div class="stat-card big" data-count="51528"><div class="stat-num">0</div><div class="stat-label">Total Messages</div><div class="stat-sub">That's a novel nobody asked for</div></div>
+      <div class="stat-card" data-count="196871"><div class="stat-num">0</div><div class="stat-label">Words Typed</div><div class="stat-sub">More than Harry Potter series</div></div>
+      <div class="stat-card" data-count="6551"><div class="stat-num">0</div><div class="stat-label">Media Shared</div><div class="stat-sub">Memes, selfies & regrets</div></div>
+      <div class="stat-card" data-count="930"><div class="stat-num">0</div><div class="stat-label">Active Days</div><div class="stat-sub">Since Aug 16, 2023</div></div>
+      <div class="stat-card" data-count="439"><div class="stat-num">0</div><div class="stat-label">Deleted Messages</div><div class="stat-sub">The secrets we'll never know</div></div>
+      <div class="stat-card" data-count="4918"><div class="stat-num">0</div><div class="stat-label">Late Night Msgs</div><div class="stat-sub">12AM-5AM degeneracy</div></div>
+    </div>
+  </section>
+
+  <!-- LEADERBOARD -->
+  <section id="leaderboard" class="section lb-section">
+    <h2 class="section-title">Who Never Shuts Up? <span class="emoji">🏆</span></h2>
+    <p class="section-sub">Message leaderboard — a ranking nobody wanted to top</p>
+    <div class="lb-container" id="lb-bars"></div>
+  </section>
+
+  <!-- ACTIVITY CHART -->
+  <section id="activity" class="section activity-section">
+    <h2 class="section-title">When Do We Yap? <span class="emoji">🕐</span></h2>
+    <p class="section-sub">Hourly activity — proof that sleep is optional</p>
+    <div class="chart-container">
+      <div class="hour-chart" id="hour-chart"></div>
+    </div>
+  </section>
+
+  <!-- MEMBER PROFILES -->
+  <section id="members" class="section members-section">
+    <h2 class="section-title">The Lineup <span class="emoji">👥</span></h2>
+    <p class="section-sub">Each one unique. Each one unhinged.</p>
+    <div class="members-grid" id="members-grid"></div>
+  </section>
+
+  <!-- ICONIC CHATS -->
+  <section id="chats" class="section chats-section">
+    <h2 class="section-title">Legendary Conversations <span class="emoji">💬</span></h2>
+    <p class="section-sub">The texts that defined us</p>
+    <div class="chats-container" id="chats-container"></div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="section timeline-section">
+    <h2 class="section-title">Our Journey <span class="emoji">🗺️</span></h2>
+    <p class="section-sub">From "Eh idk" to VVARSHAA💔</p>
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <!-- SONGS -->
+  <section id="songs" class="section songs-section">
+    <h2 class="section-title">The VVARSHAA Anthem <span class="emoji">🎵</span></h2>
+    <p class="section-sub">Because every squad needs a soundtrack</p>
+    <div class="songs-container">
+      <div class="song-card" id="song-card">
+        <div class="song-vinyl"><div class="vinyl-label">V V A R S H A A</div></div>
+        <div class="song-content" id="song-lyrics"></div>
+      </div>
+      <div class="song-card rap" id="rap-card">
+        <div class="song-vinyl rap-vinyl"><div class="vinyl-label">🔥 RAP 🔥</div></div>
+        <div class="song-content" id="rap-lyrics"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTES -->
+  <section id="quotes" class="section quotes-section">
+    <h2 class="section-title">Words of Wisdom <span class="emoji">💎</span></h2>
+    <p class="section-sub">A quote for every idiot</p>
+    <div class="quotes-grid" id="quotes-grid"></div>
+  </section>
+
+  <!-- MEMES -->
+  <section id="memes" class="section memes-section">
+    <h2 class="section-title">Meme Wall <span class="emoji">🤡</span></h2>
+    <p class="section-sub">If we can't laugh at ourselves, who can?</p>
+    <div class="memes-grid" id="memes-grid"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h2 class="footer-title">VVARSHAA 💔</h2>
+      <p>"He said one day you'll leave this world behind, so live a life you will remember"</p>
+      <p class="footer-sub">From Block 17 Room 102 to wherever life takes us.<br>Started Aug 16, 2023 — Never ending.</p>
+      <div class="footer-names">Vedant • Vashist • Anand • Rohit • Shadab • Hiten • Aakarsh • Aryan</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
