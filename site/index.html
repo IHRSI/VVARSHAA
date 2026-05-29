@@ -3,13 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VVARSHAA 💔 | The Squad That Manipal Built</title>
-  <meta name="description" content="VVARSHAA - 8 idiots, 1 group chat, 55000+ messages, infinite memories. MIT Manipal BTech squad.">
+  <title>VVARSHAA | The Squad That Manipal Built</title>
+  <meta name="description" content="VVARSHAA - 8 idiots, 1 group chat, 55000+ messages, infinite memories. MIT Manipal BTech squad tribute.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- FLOATING NAV -->
+  <nav id="floating-nav" class="floating-nav">
+    <a href="#hero" class="nav-dot active" data-label="Home"></a>
+    <a href="#stats" class="nav-dot" data-label="Stats"></a>
+    <a href="#analytics" class="nav-dot" data-label="Analytics"></a>
+    <a href="#leaderboard" class="nav-dot" data-label="Leaderboard"></a>
+    <a href="#activity" class="nav-dot" data-label="Activity"></a>
+    <a href="#members" class="nav-dot" data-label="Members"></a>
+    <a href="#whatif" class="nav-dot" data-label="What If?"></a>
+    <a href="#chats" class="nav-dot" data-label="Chats"></a>
+    <a href="#timeline" class="nav-dot" data-label="Journey"></a>
+    <a href="#songs" class="nav-dot" data-label="Songs"></a>
+    <a href="#quotes" class="nav-dot" data-label="Quotes"></a>
+    <a href="#memes" class="nav-dot" data-label="Memes"></a>
+  </nav>
+
   <!-- HERO -->
   <section id="hero" class="section hero">
     <canvas id="hero-canvas"></canvas>
@@ -25,7 +41,7 @@
         <span class="letter" data-member="Aakarsh" style="--hue:60">A</span>
         <span class="letter" data-member="Aryan" style="--hue:160">A</span>
       </h1>
-      <p class="hero-sub">8 idiots. 1 group chat. 55,000+ messages. Infinite memories.</p>
+      <p class="hero-sub">8 idiots. 1 group chat. 54,000+ messages. Infinite memories.</p>
       <div class="hero-names">
         <span>420</span><span>gwak</span><span>bingbong</span><span>sourgrapes</span>
         <span>mrkms</span><span>HRS</span><span>bevu</span><span>ninjastar</span>
@@ -41,14 +57,23 @@
   <section id="stats" class="section stats-section">
     <h2 class="section-title">The Numbers Don't Lie <span class="emoji">📊</span></h2>
     <p class="section-sub">But we do. Constantly. To each other.</p>
-    <div class="stats-grid">
-      <div class="stat-card big" data-count="51528"><div class="stat-num">0</div><div class="stat-label">Total Messages</div><div class="stat-sub">That's a novel nobody asked for</div></div>
-      <div class="stat-card" data-count="196871"><div class="stat-num">0</div><div class="stat-label">Words Typed</div><div class="stat-sub">More than Harry Potter series</div></div>
-      <div class="stat-card" data-count="6551"><div class="stat-num">0</div><div class="stat-label">Media Shared</div><div class="stat-sub">Memes, selfies & regrets</div></div>
-      <div class="stat-card" data-count="930"><div class="stat-num">0</div><div class="stat-label">Active Days</div><div class="stat-sub">Since Aug 16, 2023</div></div>
-      <div class="stat-card" data-count="439"><div class="stat-num">0</div><div class="stat-label">Deleted Messages</div><div class="stat-sub">The secrets we'll never know</div></div>
-      <div class="stat-card" data-count="4918"><div class="stat-num">0</div><div class="stat-label">Late Night Msgs</div><div class="stat-sub">12AM-5AM degeneracy</div></div>
+    <div class="stats-grid" id="stats-grid">
+      <div class="stat-card big" data-count="54748"><div class="stat-num">0</div><div class="stat-label">Total Messages</div><div class="stat-sub">That's a novel nobody asked for</div></div>
+      <div class="stat-card" data-count="199888"><div class="stat-num">0</div><div class="stat-label">Words Typed</div><div class="stat-sub">More than Harry Potter series — twice</div></div>
+      <div class="stat-card" data-count="6884"><div class="stat-num">0</div><div class="stat-label">Media Shared</div><div class="stat-sub">Memes, selfies & regrets</div></div>
+      <div class="stat-card" data-count="950"><div class="stat-num">0</div><div class="stat-label">Active Days</div><div class="stat-sub">Since Aug 16, 2023</div></div>
+      <div class="stat-card" data-count="437"><div class="stat-num">0</div><div class="stat-label">Deleted Messages</div><div class="stat-sub">The secrets we'll never know</div></div>
+      <div class="stat-card" data-count="549"><div class="stat-num">0</div><div class="stat-label">Edited Messages</div><div class="stat-sub">Second thoughts are real</div></div>
+      <div class="stat-card" data-count="4970"><div class="stat-num">0</div><div class="stat-label">Late Night Msgs</div><div class="stat-sub">12AM-5AM degeneracy</div></div>
+      <div class="stat-card" data-count="123" data-suffix=" days"><div class="stat-num">0</div><div class="stat-label">Longest Streak</div><div class="stat-sub">123 days of non-stop chatting</div></div>
     </div>
+  </section>
+
+  <!-- UNHINGED ANALYTICS -->
+  <section id="analytics" class="section analytics-section">
+    <h2 class="section-title">The Unhinged Analytics <span class="emoji">🔬</span></h2>
+    <p class="section-sub">Stats nobody asked for but everyone needed</p>
+    <div class="analytics-grid" id="analytics-grid"></div>
   </section>
 
   <!-- LEADERBOARD -->
@@ -58,12 +83,19 @@
     <div class="lb-container" id="lb-bars"></div>
   </section>
 
-  <!-- ACTIVITY CHART -->
+  <!-- ACTIVITY CHARTS -->
   <section id="activity" class="section activity-section">
     <h2 class="section-title">When Do We Yap? <span class="emoji">🕐</span></h2>
-    <p class="section-sub">Hourly activity — proof that sleep is optional</p>
-    <div class="chart-container">
-      <div class="hour-chart" id="hour-chart"></div>
+    <p class="section-sub">Hourly & weekly activity — proof that sleep is optional</p>
+    <div class="charts-row">
+      <div class="chart-container">
+        <h3 class="chart-label">Hourly Activity</h3>
+        <div class="hour-chart" id="hour-chart"></div>
+      </div>
+      <div class="chart-container">
+        <h3 class="chart-label">Day of Week</h3>
+        <div class="dow-chart" id="dow-chart"></div>
+      </div>
     </div>
   </section>
 
@@ -74,6 +106,13 @@
     <div class="members-grid" id="members-grid"></div>
   </section>
 
+  <!-- WHAT IF? -->
+  <section id="whatif" class="section whatif-section">
+    <h2 class="section-title">What If...? <span class="emoji">🎭</span></h2>
+    <p class="section-sub">Alternate universes where these idiots had real jobs</p>
+    <div class="whatif-grid" id="whatif-grid"></div>
+  </section>
+
   <!-- ICONIC CHATS -->
   <section id="chats" class="section chats-section">
     <h2 class="section-title">Legendary Conversations <span class="emoji">💬</span></h2>
@@ -81,24 +120,51 @@
     <div class="chats-container" id="chats-container"></div>
   </section>
 
-  <!-- TIMELINE -->
+  <!-- JOURNEY TRAIL -->
   <section id="timeline" class="section timeline-section">
-    <h2 class="section-title">Our Journey <span class="emoji">🗺️</span></h2>
-    <p class="section-sub">From "Eh idk" to VVARSHAA💔</p>
-    <div class="timeline" id="timeline"></div>
+    <h2 class="section-title">The VVARSHAA Trail <span class="emoji">🗺️</span></h2>
+    <p class="section-sub">From "Eh idk" to VVARSHAA — every stop on the road</p>
+    <div class="trail-container">
+      <svg class="trail-path" id="trail-svg" preserveAspectRatio="none"></svg>
+      <div class="trail" id="trail"></div>
+    </div>
   </section>
 
   <!-- SONGS -->
   <section id="songs" class="section songs-section">
-    <h2 class="section-title">The VVARSHAA Anthem <span class="emoji">🎵</span></h2>
+    <h2 class="section-title">The VVARSHAA Soundtrack <span class="emoji">🎵</span></h2>
     <p class="section-sub">Because every squad needs a soundtrack</p>
     <div class="songs-container">
       <div class="song-card" id="song-card">
-        <div class="song-vinyl"><div class="vinyl-label">V V A R S H A A</div></div>
+        <div class="song-player">
+          <div class="vinyl-wrapper">
+            <div class="song-vinyl" id="vinyl-1"><div class="vinyl-label">V V A R S H A A</div></div>
+          </div>
+          <div class="player-controls">
+            <h3>🎵 The VVARSHAA Anthem</h3>
+            <div class="audio-progress"><div class="audio-bar" id="bar-1"></div></div>
+            <div class="audio-time"><span id="time-1">0:00</span> / <span id="dur-1">--:--</span></div>
+            <div class="audio-btns">
+              <button class="play-btn" id="play-1" data-track="anthem">▶</button>
+            </div>
+          </div>
+        </div>
         <div class="song-content" id="song-lyrics"></div>
       </div>
       <div class="song-card rap" id="rap-card">
-        <div class="song-vinyl rap-vinyl"><div class="vinyl-label">🔥 RAP 🔥</div></div>
+        <div class="song-player">
+          <div class="vinyl-wrapper">
+            <div class="song-vinyl rap-vinyl" id="vinyl-2"><div class="vinyl-label">🔥 RAP 🔥</div></div>
+          </div>
+          <div class="player-controls">
+            <h3>🔥 The VVARSHAA Cypher</h3>
+            <div class="audio-progress"><div class="audio-bar" id="bar-2"></div></div>
+            <div class="audio-time"><span id="time-2">0:00</span> / <span id="dur-2">--:--</span></div>
+            <div class="audio-btns">
+              <button class="play-btn" id="play-2" data-track="cypher">▶</button>
+            </div>
+          </div>
+        </div>
         <div class="song-content" id="rap-lyrics"></div>
       </div>
     </div>
@@ -107,13 +173,14 @@
   <!-- QUOTES -->
   <section id="quotes" class="section quotes-section">
     <h2 class="section-title">Words of Wisdom <span class="emoji">💎</span></h2>
-    <p class="section-sub">A quote for every idiot</p>
+    <p class="section-sub">Gems from the group chat, categorized by chaos level</p>
+    <div class="quote-tabs" id="quote-tabs"></div>
     <div class="quotes-grid" id="quotes-grid"></div>
   </section>
 
-  <!-- MEMES -->
+  <!-- MEME WALL -->
   <section id="memes" class="section memes-section">
-    <h2 class="section-title">Meme Wall <span class="emoji">🤡</span></h2>
+    <h2 class="section-title">The Award Ceremony <span class="emoji">🏅</span></h2>
     <p class="section-sub">If we can't laugh at ourselves, who can?</p>
     <div class="memes-grid" id="memes-grid"></div>
   </section>
@@ -121,10 +188,11 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-content">
-      <h2 class="footer-title">VVARSHAA 💔</h2>
+      <h2 class="footer-title">VVARSHAA</h2>
       <p>"He said one day you'll leave this world behind, so live a life you will remember"</p>
       <p class="footer-sub">From Block 17 Room 102 to wherever life takes us.<br>Started Aug 16, 2023 — Never ending.</p>
       <div class="footer-names">Vedant • Vashist • Anand • Rohit • Shadab • Hiten • Aakarsh • Aryan</div>
+      <div class="footer-stats">54,748 messages • 199,888 words • 950 days • ∞ memories</div>
     </div>
   </footer>
 
