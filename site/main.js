@@ -566,57 +566,109 @@ function buildSongs() {
 function initAudioPlayers() {
   const tracks = { anthem: 'anthem.mp3', cypher: 'cypher.mp3' };
   const audios = {};
-  document.querySelectorAll('.play-btn').forEach(btn => {
-    const trackName = btn.dataset.track;
-    const id = btn.id.split('-')[1];
-    const vinyl = document.getElementById('vinyl-' + id);
-    const bar = document.getElementById('bar-' + id);
-    const timeEl = document.getElementById('time-' + id);
-    const durEl = document.getElementById('dur-' + id);
 
-    btn.addEventListener('click', () => {
-      if (!audios[trackName]) {
-        audios[trackName] = new Audio(tracks[trackName]);
-        audios[trackName].addEventListener('loadedmetadata', () => {
-          const d = audios[trackName].duration;
-          durEl.textContent = Math.floor(d / 60) + ':' + String(Math.floor(d % 60)).padStart(2, '0');
-        });
-        audios[trackName].addEventListener('timeupdate', () => {
-          const a = audios[trackName];
-          const pct = (a.currentTime / a.duration * 100);
-          bar.style.width = pct + '%';
-          timeEl.textContent = Math.floor(a.currentTime / 60) + ':' + String(Math.floor(a.currentTime % 60)).padStart(2, '0');
-        });
-        audios[trackName].addEventListener('ended', () => {
-          btn.textContent = '▶';
-          vinyl.classList.remove('spinning');
-        });
-        audios[trackName].addEventListener('error', () => {
-          btn.textContent = '⚠';
-          btn.title = 'Audio file not found. Add ' + tracks[trackName] + ' to the site folder.';
-        });
-      }
-      const audio = audios[trackName];
-      if (audio.paused) {
-        // Pause all others
-        Object.values(audios).forEach(a => { if (a !== audio && !a.paused) a.pause() });
-        document.querySelectorAll('.song-vinyl').forEach(v => v.classList.remove('spinning'));
-        document.querySelectorAll('.play-btn').forEach(b => { if (b !== btn) b.textContent = '▶' });
-        audio.play().catch(() => { });
-        btn.textContent = '⏸';
-        vinyl.classList.add('spinning');
-      } else {
-        audio.pause();
-        btn.textContent = '▶';
-        vinyl.classList.remove('spinning');
+  // Helper: format seconds as m:ss
+  function fmt(s) { return Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0'); }
+
+  // Collect all UI elements keyed by track name
+  // Each track can have multiple player UIs (e.g. global + songs section)
+  function getUIs(trackName) {
+    const uis = [];
+    document.querySelectorAll(`.play-btn[data-track="${trackName}"]`).forEach(btn => {
+      const id = btn.id.split('-')[1];
+      uis.push({
+        btn,
+        vinyl: document.getElementById('vinyl-' + id),
+        bar: document.getElementById('bar-' + id),
+        timeEl: document.getElementById('time-' + id),
+        durEl: document.getElementById('dur-' + id)
+      });
+    });
+    return uis;
+  }
+
+  // Sync all UIs for a track to current audio state
+  function syncUIs(trackName) {
+    const audio = audios[trackName];
+    if (!audio) return;
+    const uis = getUIs(trackName);
+    const playing = !audio.paused;
+    uis.forEach(ui => {
+      ui.btn.textContent = playing ? '⏸' : '▶';
+      if (ui.vinyl) {
+        if (playing) ui.vinyl.classList.add('spinning');
+        else ui.vinyl.classList.remove('spinning');
       }
     });
+  }
+
+  // Update progress/time on all UIs for a track
+  function updateProgress(trackName) {
+    const audio = audios[trackName];
+    if (!audio || !audio.duration) return;
+    const pct = (audio.currentTime / audio.duration * 100);
+    const uis = getUIs(trackName);
+    uis.forEach(ui => {
+      if (ui.bar) ui.bar.style.width = pct + '%';
+      if (ui.timeEl) ui.timeEl.textContent = fmt(audio.currentTime);
+    });
+  }
+
+  // Ensure audio object exists and wire events (once per track)
+  function ensureAudio(trackName) {
+    if (audios[trackName]) return;
+    const audio = new Audio(tracks[trackName]);
+    audios[trackName] = audio;
+
+    audio.addEventListener('loadedmetadata', () => {
+      const uis = getUIs(trackName);
+      uis.forEach(ui => {
+        if (ui.durEl) ui.durEl.textContent = fmt(audio.duration);
+      });
+    });
+    audio.addEventListener('timeupdate', () => updateProgress(trackName));
+    audio.addEventListener('ended', () => syncUIs(trackName));
+    audio.addEventListener('error', () => {
+      const uis = getUIs(trackName);
+      uis.forEach(ui => {
+        ui.btn.textContent = '⚠';
+        ui.btn.title = 'Audio file not found. Add ' + tracks[trackName] + ' to the site folder.';
+      });
+    });
+  }
+
+  // Wire up every play button
+  document.querySelectorAll('.play-btn').forEach(btn => {
+    const trackName = btn.dataset.track;
+    btn.addEventListener('click', () => {
+      ensureAudio(trackName);
+      const audio = audios[trackName];
+
+      if (audio.paused) {
+        // Pause all other tracks
+        Object.entries(audios).forEach(([name, a]) => {
+          if (name !== trackName && !a.paused) {
+            a.pause();
+            syncUIs(name);
+          }
+        });
+        audio.play().catch(() => {});
+      } else {
+        audio.pause();
+      }
+      syncUIs(trackName);
+    });
   });
-  // Click on progress bar to seek
-  document.querySelectorAll('.audio-progress').forEach(prog => {
+
+  // Wire up all progress bars for seeking
+  document.querySelectorAll('.audio-progress, .gp-progress').forEach(prog => {
     prog.addEventListener('click', e => {
-      const id = prog.querySelector('.audio-bar').id.split('-')[1];
-      const trackName = document.getElementById('play-' + id).dataset.track;
+      const barEl = prog.querySelector('.audio-bar, [id^="bar-"]');
+      if (!barEl) return;
+      const id = barEl.id.split('-')[1];
+      const playBtn = document.getElementById('play-' + id);
+      if (!playBtn) return;
+      const trackName = playBtn.dataset.track;
       if (audios[trackName] && audios[trackName].duration) {
         const rect = prog.getBoundingClientRect();
         const pct = (e.clientX - rect.left) / rect.width;
