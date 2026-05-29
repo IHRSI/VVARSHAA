@@ -10,6 +10,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- GLOBAL ANTHEM PLAYER -->
+  <div class="global-player" id="global-player">
+    <div class="gp-left">
+      <div class="song-vinyl" id="vinyl-global"></div>
+      <div class="gp-info">
+        <div class="gp-title">The VVARSHAA Anthem</div>
+        <div class="gp-controls">
+          <span id="time-global">0:00</span> / <span id="dur-global">0:00</span>
+        </div>
+      </div>
+    </div>
+    <button class="play-btn gp-play" id="play-global" data-track="anthem">▶</button>
+    <div class="audio-progress gp-progress">
+      <div class="audio-bar" id="bar-global"></div>
+    </div>
+  </div>
+
   <!-- FLOATING NAV -->
   <nav id="floating-nav" class="floating-nav">
     <a href="#hero" class="nav-dot active" data-label="Home"></a>
