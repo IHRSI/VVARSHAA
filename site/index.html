@@ -12,19 +12,14 @@
 <body>
   <!-- GLOBAL ANTHEM PLAYER -->
   <div class="global-player" id="global-player">
-    <div class="gp-left">
-      <div class="song-vinyl" id="vinyl-global"></div>
-      <div class="gp-info">
-        <div class="gp-title">The VVARSHAA Anthem</div>
-        <div class="gp-controls">
-          <span id="time-global">0:00</span> / <span id="dur-global">0:00</span>
-        </div>
-      </div>
+    <div class="gp-vinyl song-vinyl" id="vinyl-global"></div>
+    <button class="gp-btn play-btn" id="play-global" data-track="anthem">▶</button>
+    <div class="gp-ring"></div>
+    <div class="gp-progress-ring">
+      <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" id="bar-global" /></svg>
     </div>
-    <button class="play-btn gp-play" id="play-global" data-track="anthem">▶</button>
-    <div class="audio-progress gp-progress">
-      <div class="audio-bar" id="bar-global"></div>
-    </div>
+    <span class="gp-time" id="time-global">0:00</span>
+    <span class="gp-dur" id="dur-global" style="display:none"></span>
   </div>
 
   <!-- FLOATING NAV -->

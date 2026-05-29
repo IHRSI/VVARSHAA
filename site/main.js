@@ -609,7 +609,15 @@ function initAudioPlayers() {
     const pct = (audio.currentTime / audio.duration * 100);
     const uis = getUIs(trackName);
     uis.forEach(ui => {
-      if (ui.bar) ui.bar.style.width = pct + '%';
+      if (ui.bar) {
+        // SVG circle progress ring (global player)
+        if (ui.bar.tagName === 'circle') {
+          const circumference = 2 * Math.PI * 27; // r=27
+          ui.bar.style.strokeDashoffset = circumference - (circumference * pct / 100);
+        } else {
+          ui.bar.style.width = pct + '%';
+        }
+      }
       if (ui.timeEl) ui.timeEl.textContent = fmt(audio.currentTime);
     });
   }
