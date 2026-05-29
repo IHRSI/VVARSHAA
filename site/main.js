@@ -86,69 +86,6 @@ const whatIfs = [
   }
 ];
 
-// ============ CHATS ============
-const chats = [
-  {
-    title: "🧬 The Rizz Arc (Aug 2023)", messages: [
-      { s: "Anand", m: "Everyone be careful of vedant...Monday he told he will come in full form", side: "left" },
-      { s: "Aryan", m: "Watch him come with new form and still have L rizz 😂", side: "right" },
-      { s: "Vedant", m: "I need to get my form back so im going", side: "left" },
-      { s: "Vedant", m: "My rizz aint working", side: "left" },
-      { s: "Vedant", m: "Even the cancer one aint working", side: "left" },
-      { s: "Anand", m: "You never had rizz bro", side: "right" },
-      { s: "Anand", m: "Brother can't grow a decent beard and is accusing someone else of lacking testosterone", side: "right" },
-      { s: "Vedant", m: "I havent laughed for the past 24hrs coz ill knock u the fuck down n im serious", side: "left" }
-    ]
-  },
-  {
-    title: "🎬 Movie Night Chaos (Halloween 2023)", messages: [
-      { s: "Rohit", m: "Bois it's halloween. Movie night?", side: "left" },
-      { s: "Shadab", m: "bhaissab wtf am I doing here. ek banda family ek banda horny ek banda horror", side: "right" },
-      { s: "Vedant", m: "Bro u know that the movie night shit isnt going to happen coz of how indecisive these guys are", side: "left" },
-      { s: "Aryan", m: "Put znmd no-one cares about Halloween...enjoy life bhai", side: "right" },
-      { s: "Vedant", m: "*removes Rohit from group*", side: "left" },
-      { s: "Shadab", m: "nice one @Vedant", side: "right" }
-    ]
-  },
-  {
-    title: "🚨 Rohit Goes Missing (Nov 2023)", messages: [
-      { s: "Anand", m: "Rohit bkl kaha ho", side: "left" },
-      { s: "Vedant", m: "He aint picking my calls also", side: "right" },
-      { s: "Anand", m: "His mom called him around 20 times", side: "left" },
-      { s: "Aryan", m: "He's safe apparently. He was with anagha", side: "right" },
-      { s: "Vedant", m: "HOSTEL AA LAUDE", side: "left" },
-      { s: "Aryan", m: "Sabko night canteen sponsor...that is u sorting shit out with us", side: "right" }
-    ]
-  },
-  {
-    title: "📊 Results Day Meltdown (Dec 2023)", messages: [
-      { s: "Aakarsh", m: "Mera toh dimag block ho gaya tha har exam mein ab g phat rahi", side: "left" },
-      { s: "Aakarsh", m: "Jab my family starts red room on dark web tab chat mein pooch lena ki result kahaan tha", side: "left" },
-      { s: "Vedant", m: "FUCK MIT", side: "right" },
-      { s: "Vedant", m: "ILL DO AN ACADEMIC COMEBACK IN PHY CYCLE AND GET 9+ CGPA", side: "right" },
-      { s: "Vedant", m: "or else i shall take yall out on a cumulative 10k ka treat", side: "right" },
-      { s: "Anand", m: "BC I know Shadab saw his 9 cgpa and slept off", side: "left" }
-    ]
-  },
-  {
-    title: "🏔️ Coorg Trip Planning Arc (Feb-May 2024)", messages: [
-      { s: "Vedant", m: "Bro if yall are making such a fuss about going to a place 4hrs away idk what to say", side: "left" },
-      { s: "Vedant", m: "Agar itna hi hai tho khud book karlo i never forced yall to come", side: "left" },
-      { s: "Aryan", m: "After all the hardships of our room in 3rd sem...no mirror...wood lice everywhere...broken bed drawers...4th sem...we cooked 403", side: "right" },
-      { s: "Anand", m: "Damn bro i didn't know i thought we were literally cats and dogs", side: "left" }
-    ]
-  },
-  {
-    title: "🇯🇵 Japan Arc & Nostalgia (May 2025-2026)", messages: [
-      { s: "Vedant", m: "Think about the way we would pull all nighters, go on random side quests, nothing anymore", side: "left" },
-      { s: "Aryan", m: "Crazy life mannnn...diljit coldplay and anirudh all in 6 months", side: "right" },
-      { s: "Anand", m: "And I was there when he broke down and I get fingered in return 😂", side: "left" },
-      { s: "Vedant", m: "Gang got insane fit. Japanese fit. Kal last day japan 🇯🇵", side: "right" },
-      { s: "Shadab", m: "Nice", side: "left" }
-    ]
-  }
-];
-
 // ============ TIMELINE ============
 const timeline = [
   { date: "Aug 16, 2023", title: "🎬 'Eh idk' is Born", desc: "Aryan creates the group. First message: 😔😔. Anand immediately asks 'When are we eating'. The chaos begins." },
@@ -608,21 +545,6 @@ function buildWhatIf() {
   });
 }
 
-// ============ CHATS ============
-function buildChats() {
-  const container = document.getElementById('chats-container');
-  chats.forEach(chat => {
-    const block = document.createElement('div');
-    block.className = 'chat-block reveal';
-    let html = `<div class="chat-title">${chat.title}</div>`;
-    chat.messages.forEach(msg => {
-      html += `<div class="chat-msg ${msg.side}"><div class="chat-sender">${msg.s}</div>${msg.m}</div>`;
-    });
-    block.innerHTML = html;
-    container.appendChild(block);
-  });
-}
-
 // ============ TIMELINE ============
 function buildTimeline() {
   const container = document.getElementById('trail');
@@ -835,7 +757,6 @@ document.addEventListener('DOMContentLoaded', () => {
   buildAnalytics();
   buildMembers();
   buildWhatIf();
-  buildChats();
   buildTimeline();
   buildSongs();
   buildQuoteTabs();
