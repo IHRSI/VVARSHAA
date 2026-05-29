@@ -1,10 +1,8 @@
 <div align="center">
 
-# VVARSHAA
 <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=250&section=header&text=VVARSHAA&fontSize=90&animation=fadeIn&fontAlignY=38&desc=8%20Idiots.%201%20Group%20Chat.%2055,000+%20Messages.&descAlignY=51&descAlign=62" />
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/Website-Live-06d6a0?style=for-the-badge&logo=vercel&logoColor=white" /></a>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
