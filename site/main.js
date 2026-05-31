@@ -261,7 +261,6 @@ const quotes = [
   { text: "Anand if you ever need something we all are here bhai, fuck Vedant.", author: "Aakarsh, wholesome with a twist", cat: "chaos" },
   { text: "Bangalore wants me.", author: "Rohit, before disappearing for 7 hours", cat: "chaos" },
   { text: "Disclaimer dena padta hai warna koi offend na ho jaye.", author: "Hiten, after his relationship advice essay", cat: "chaos" },
-  { text: "Munnar Mysore Goa Puducherry Waynad Hampi. Just to cancel.", author: "Hiten, planning trips he'll never take", cat: "chaos" },
   { text: "It's a joke not a dick don't take it so hard.", author: "Rohit, settling group arguments", cat: "chaos" }
 ];
 
