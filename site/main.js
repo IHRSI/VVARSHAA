@@ -256,16 +256,11 @@ const quotes = [
   { text: "I like how everyone is arguing over differential and I have no idea what the fuck is going on.", author: "Rohit, speaking for all of us", cat: "2am" },
 
   // PURE CHAOS — evenly distributed
-  { text: "Lodaaaaaa bc", author: "Shadab, literally his first words in the group", cat: "chaos" },
-  { text: "HOSTEL AA LAUDE", author: "Vedant, every time someone misbehaves", cat: "chaos" },
-  { text: "bhaissab wtf am I doing here. ek banda family ek banda horny ek banda horror.", author: "Shadab, during movie selection", cat: "chaos" },
   { text: "Tell me what yall will get at 58 rs.", author: "Vashist, on being asked for a treat", cat: "chaos" },
-  { text: "Sab rand hai kya kiska muh meh liye hai yes no to boldo bhadwo.", author: "Hiten, losing his patience (historic moment)", cat: "chaos" },
   { text: "@Vedant have a ceat tyre strategic timeout.", author: "Hiten, after removing Vedant from the group", cat: "chaos" },
   { text: "Anand if you ever need something we all are here bhai, fuck Vedant.", author: "Aakarsh, wholesome with a twist", cat: "chaos" },
   { text: "Bangalore wants me.", author: "Rohit, before disappearing for 7 hours", cat: "chaos" },
   { text: "Disclaimer dena padta hai warna koi offend na ho jaye.", author: "Hiten, after his relationship advice essay", cat: "chaos" },
-  { text: "Luda mera.", author: "Vashist, his most eloquent response", cat: "chaos" },
   { text: "Munnar Mysore Goa Puducherry Waynad Hampi. Just to cancel.", author: "Hiten, planning trips he'll never take", cat: "chaos" },
   { text: "It's a joke not a dick don't take it so hard.", author: "Rohit, settling group arguments", cat: "chaos" }
 ];
